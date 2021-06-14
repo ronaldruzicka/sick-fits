@@ -1,6 +1,10 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-const CartStyles = styled.div`
+type Props = {
+  open: boolean
+}
+
+const CartStyles = styled.div<Props>`
   padding: 20px;
   position: relative;
   background: white;
@@ -17,7 +21,8 @@ const CartStyles = styled.div`
   z-index: 5;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  ${(props) => props.open && `transform: translateX(0);`};
+  ${({ open }) => open && 'transform: translateX(0);'}
+
   header {
     border-bottom: 5px solid var(--black);
     margin-bottom: 2rem;
@@ -42,6 +47,6 @@ const CartStyles = styled.div`
     list-style: none;
     overflow: scroll;
   }
-`;
+`
 
-export default CartStyles;
+export default CartStyles
