@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Sick Fits! An example React, GraphQL, Next and Apollo",
   "main": "index.js",
+  "author": "",
+  "license": "ISC",
   "scripts": {
     "dev": "next -p 7777",
     "build": "next build",
@@ -13,8 +15,6 @@
     "lint": "eslint --ext .ts,.tsx '**/*.{ts,tsx}' --fix",
     "format": "prettier --write  '**/*.{ts,tsx,js}'"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "apollo-boost": "^0.4.9",
     "apollo-client": "^2.6.10",

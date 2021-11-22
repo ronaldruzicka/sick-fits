@@ -139,3 +139,5 @@ yarn-error.log*
 
 # IDE
 **/.vscode
+
+/backend/.keystone

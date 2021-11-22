@@ -10,4 +10,4 @@ module.exports = {
   tabWidth: 2, // Specify the number of spaces per indentation-level.
   trailingComma: 'all', // Trailing commas wherever possible (including function arguments). This requires node 8 or a transform.
   useTabs: false, // Indent lines with tabs instead of spaces.
-}
+};
