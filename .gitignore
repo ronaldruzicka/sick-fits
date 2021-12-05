@@ -141,3 +141,6 @@ yarn-error.log*
 **/.vscode
 
 /backend/.keystone
+
+# GraphQL
+/frontend/src/graphql/types.ts

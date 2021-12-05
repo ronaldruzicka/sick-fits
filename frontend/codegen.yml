@@ -1,0 +1,14 @@
+schema: http://localhost:3000/api/graphql
+documents:
+  - ./src/**/*.fragment.ts
+  - ./src/**/*.mutation.ts
+  - ./src/**/*.query.ts
+generates:
+  ./src/graphql/types.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+    config:
+      namingConvention:
+        typeNames: change-case#pascalCase
+        enumValues: keep
