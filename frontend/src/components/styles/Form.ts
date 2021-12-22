@@ -1,3 +1,4 @@
+import { theme } from 'components/styles/theme';
 import styled, { keyframes } from 'styled-components';
 
 const loading = keyframes`
@@ -12,7 +13,7 @@ const loading = keyframes`
   }
 `;
 
-const Form = styled.form`
+export const Form = styled.form`
   box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.05);
   background: rgba(0, 0, 0, 0.02);
   border: 5px solid white;
@@ -33,7 +34,7 @@ const Form = styled.form`
     border: 1px solid black;
     &:focus {
       outline: 0;
-      border-color: ${(props) => props.theme.red};
+      border-color: ${theme.colors.red};
     }
   }
   button,
@@ -65,5 +66,3 @@ const Form = styled.form`
     }
   }
 `;
-
-export default Form;

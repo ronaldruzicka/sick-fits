@@ -1,7 +1,8 @@
+import { theme } from 'components/styles/theme';
 import styled from 'styled-components';
 
-const CloseButton = styled.button`
-  background: black;
+export const CloseButton = styled.button`
+  background: ${theme.colors.black};
   color: white;
   font-size: 3rem;
   border: 0;
@@ -9,5 +10,3 @@ const CloseButton = styled.button`
   z-index: 2;
   right: 0;
 `;
-
-export default CloseButton;

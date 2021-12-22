@@ -1,10 +1,11 @@
+import { theme } from 'components/styles/theme';
 import styled from 'styled-components';
 
-const OrderItemStyles = styled.li`
-  box-shadow: ${(props) => props.theme.bs};
+export const OrderItemStyles = styled.li`
+  box-shadow: ${theme.colors.bs};
   list-style: none;
   padding: 2rem;
-  border: 1px solid ${(props) => props.theme.offWhite};
+  border: 1px solid ${theme.colors.offWhite};
   h2 {
     border-bottom: 2px solid red;
     margin-top: 0;
@@ -40,5 +41,3 @@ const OrderItemStyles = styled.li`
     }
   }
 `;
-
-export default OrderItemStyles;

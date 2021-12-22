@@ -1,9 +1,10 @@
+import { theme } from 'components/styles/theme';
 import styled from 'styled-components';
 
-const Item = styled.div`
+export const ItemStyles = styled.div`
   background: white;
-  border: 1px solid ${(props) => props.theme.offWhite};
-  box-shadow: ${(props) => props.theme.bs};
+  border: 1px solid ${theme.colors.offWhite};
+  box-shadow: ${theme.colors.bs};
   position: relative;
   display: flex;
   flex-direction: column;
@@ -22,10 +23,10 @@ const Item = styled.div`
   .buttonList {
     display: grid;
     width: 100%;
-    border-top: 1px solid ${(props) => props.theme.lightgrey};
+    border-top: 1px solid ${theme.colors.lightGray};
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     grid-gap: 1px;
-    background: ${(props) => props.theme.lightgrey};
+    background: ${theme.colors.lightGray};
     & > * {
       background: white;
       border: 0;
@@ -34,5 +35,3 @@ const Item = styled.div`
     }
   }
 `;
-
-export default Item;

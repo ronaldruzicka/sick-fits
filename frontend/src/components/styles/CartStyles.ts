@@ -1,6 +1,7 @@
+import { theme } from 'components/styles/theme';
 import styled from 'styled-components';
 
-const CartStyles = styled.div`
+export const CartStyles = styled.div<{ open: boolean }>`
   padding: 20px;
   position: relative;
   background: white;
@@ -17,18 +18,19 @@ const CartStyles = styled.div`
   z-index: 5;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  ${(props) => props.open && `transform: translateX(0);`};
+  ${({ open }) => open && `transform: translateX(0);`};
+
   header {
-    border-bottom: 5px solid ${(props) => props.theme.black};
+    border-bottom: 5px solid ${theme.colors.black};
     margin-bottom: 2rem;
     padding-bottom: 2rem;
   }
   footer {
-    border-top: 10px double ${(props) => props.theme.black};
+    border-top: 10px double ${theme.colors.black};
     margin-top: 2rem;
     padding-top: 2rem;
-    display: grid;
-    grid-template-columns: auto auto;
+    /* display: grid;
+    grid-template-columns: auto auto; */
     align-items: center;
     font-size: 3rem;
     font-weight: 900;
@@ -43,5 +45,3 @@ const CartStyles = styled.div`
     overflow: scroll;
   }
 `;
-
-export default CartStyles;
