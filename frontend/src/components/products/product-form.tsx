@@ -3,10 +3,13 @@ import { ErrorMessage } from 'components/ErrorMessage';
 import { CREATE_PRODUCT_MUTATION } from 'components/products/mutations/create-product.mutation';
 import { ALL_PRODUCTS_QUERY } from 'components/products/queries/all-products.query';
 import { Form } from 'components/styles/Form';
+import { CreateProductMutation, CreateProductMutationVariables } from 'graphql/types';
 import { useForm } from 'lib/useForm';
+import { useRouter } from 'next/router';
 import React, { FormEvent } from 'react';
 
 export const ProductForm = () => {
+  const router = useRouter();
   const defaultValues = {
     description: '',
     image: '',
@@ -16,15 +19,22 @@ export const ProductForm = () => {
 
   const { values, handleInputChange, clearForm } = useForm(defaultValues);
 
-  const [createProduct, { loading: isLoading, error }] = useMutation(CREATE_PRODUCT_MUTATION, {
+  const [createProduct, { loading: isLoading, error }] = useMutation<
+    CreateProductMutation,
+    CreateProductMutationVariables
+  >(CREATE_PRODUCT_MUTATION, {
     variables: values,
     refetchQueries: [{ query: ALL_PRODUCTS_QUERY }],
   });
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    await createProduct();
+
+    const response = await createProduct();
+
     clearForm();
+
+    router.push(`/product/${response.data?.createProduct?.id}`);
   };
 
   return (
