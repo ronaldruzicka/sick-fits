@@ -1,7 +1,12 @@
 import { ChangeEvent, useState } from 'react';
+import useDeepCompareEffect from 'use-deep-compare-effect';
 
 export const useForm = <Values extends Record<string, unknown>>(defaultValues: Values) => {
   const [values, setValues] = useState<Values>(defaultValues);
+
+  useDeepCompareEffect(() => {
+    setValues(defaultValues);
+  }, [defaultValues]);
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { files, name, type, value } = event.target;
@@ -16,10 +21,6 @@ export const useForm = <Values extends Record<string, unknown>>(defaultValues: V
     }
 
     if (type === 'file') {
-      console.log('values', values);
-      console.log('files', files);
-      console.log('files[0]', files?.[0]);
-      console.log('name', name);
       setValues((prevValues) => ({
         ...prevValues,
         [name]: files?.[0],

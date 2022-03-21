@@ -26,6 +26,18 @@ export const Product = ({ data }: Props) => {
       </Title>
       <PriceTag>{formatMoney(price)}</PriceTag>
       <p>{data.description}</p>
+      <div className="buttonList">
+        <Link
+          href={{
+            pathname: 'product/update',
+            query: {
+              id: data.id,
+            },
+          }}
+        >
+          Edit ✏️
+        </Link>
+      </div>
     </ItemStyles>
   );
 };
