@@ -18,7 +18,7 @@ export const ProductsList = () => {
   } = useQuery<AllProductsQuery, AllProductsQueryVariables>(ALL_PRODUCTS_QUERY);
 
   if (isLoading) {
-    return <p>Loading producst...</p>;
+    return <p>Loading products...</p>;
   }
 
   if (error) {

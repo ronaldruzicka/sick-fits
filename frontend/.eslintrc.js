@@ -9,4 +9,7 @@ module.exports = {
   },
   root: true,
   extends: ['eslint-config-typescript-react'],
+  rules: {
+    'no-alert': 'off',
+  },
 };

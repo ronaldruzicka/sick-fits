@@ -1,3 +1,4 @@
+import { DeleteProduct } from 'components/products/delete-product';
 import { ItemStyles } from 'components/styles/ItemStyles';
 import { PriceTag } from 'components/styles/PriceTag';
 import { Title } from 'components/styles/Title';
@@ -22,14 +23,14 @@ export const Product = ({ data }: Props) => {
     <ItemStyles>
       {imageUrl && name && <img src={imageUrl} alt={name} />}
       <Title>
-        <Link href={`product/${data.id}`}>{name}</Link>
+        <Link href={`/product/${data.id}`}>{name}</Link>
       </Title>
       <PriceTag>{formatMoney(price)}</PriceTag>
       <p>{data.description}</p>
       <div className="buttonList">
         <Link
           href={{
-            pathname: 'product/update',
+            pathname: '/product/update',
             query: {
               id: data.id,
             },
@@ -37,6 +38,7 @@ export const Product = ({ data }: Props) => {
         >
           Edit ✏️
         </Link>
+        <DeleteProduct id={data.id}>Delete 🗑</DeleteProduct>
       </div>
     </ItemStyles>
   );
